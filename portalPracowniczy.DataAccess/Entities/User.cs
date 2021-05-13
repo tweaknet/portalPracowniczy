@@ -22,7 +22,6 @@ namespace portalPracowniczy.DataAccess.Entities
         public string Login { get; set; }
         public int IdPosition { get; set; }
         public int IdBranch { get; set; }
-        public int ProposalId { get; set; }
-        public Proposal Proposal { get; set; }
+        public List<Proposal> Proposals { get; set; }
     }
 }

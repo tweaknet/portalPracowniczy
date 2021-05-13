@@ -14,5 +14,6 @@ namespace portalPracowniczy.DataAccess
         {
         }
         public DbSet<User> Users { get; set; }
+        public DbSet<Proposal> Proposals { get; set; }
     }
 }

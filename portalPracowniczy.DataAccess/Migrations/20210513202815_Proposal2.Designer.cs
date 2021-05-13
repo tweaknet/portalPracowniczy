@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using portalPracowniczy.DataAccess;
 
 namespace portalPracowniczy.DataAccess.Migrations
 {
     [DbContext(typeof(PortalStorageContext))]
-    partial class PortalStorageContextModelSnapshot : ModelSnapshot
+    [Migration("20210513202815_Proposal2")]
+    partial class Proposal2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,10 +34,7 @@ namespace portalPracowniczy.DataAccess.Migrations
                     b.Property<int>("IdStatus")
                         .HasColumnType("int");
 
-                    b.Property<int>("IdUser")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("UserId")
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("curentDate")
@@ -45,8 +44,6 @@ namespace portalPracowniczy.DataAccess.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Proposals");
                 });
@@ -88,18 +85,6 @@ namespace portalPracowniczy.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("portalPracowniczy.DataAccess.Entities.Proposal", b =>
-                {
-                    b.HasOne("portalPracowniczy.DataAccess.Entities.User", null)
-                        .WithMany("Proposals")
-                        .HasForeignKey("UserId");
-                });
-
-            modelBuilder.Entity("portalPracowniczy.DataAccess.Entities.User", b =>
-                {
-                    b.Navigation("Proposals");
                 });
 #pragma warning restore 612, 618
         }

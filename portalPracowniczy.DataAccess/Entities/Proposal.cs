@@ -13,6 +13,5 @@ namespace portalPracowniczy.DataAccess.Entities
         public DateTime date { get; set; }
         public int IdHolidayType { get; set; }
         public DateTime curentDate { get; set; }
-        public List<User> Users { get; set; }
     }
 }
