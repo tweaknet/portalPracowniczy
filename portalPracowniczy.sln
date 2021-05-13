@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "portalPracowniczy", "portalPracowniczy\portalPracowniczy.csproj", "{63E143FE-B3A4-492E-A3FE-1DB3DBC97C75}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "portalPracowniczy.DataAccess", "portalPracowniczy.DataAccess\portalPracowniczy.DataAccess.csproj", "{BDB89745-27EF-42A4-9BED-48CE7509A077}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{63E143FE-B3A4-492E-A3FE-1DB3DBC97C75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63E143FE-B3A4-492E-A3FE-1DB3DBC97C75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63E143FE-B3A4-492E-A3FE-1DB3DBC97C75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63E143FE-B3A4-492E-A3FE-1DB3DBC97C75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDB89745-27EF-42A4-9BED-48CE7509A077}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDB89745-27EF-42A4-9BED-48CE7509A077}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDB89745-27EF-42A4-9BED-48CE7509A077}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDB89745-27EF-42A4-9BED-48CE7509A077}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CDA607D9-3D63-4C66-89B0-88DF5E8FE21F}
+	EndGlobalSection
+EndGlobal
