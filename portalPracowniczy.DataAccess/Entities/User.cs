@@ -23,5 +23,6 @@ namespace portalPracowniczy.DataAccess.Entities
         public int IdPosition { get; set; }
         public int IdBranch { get; set; }
         public List<Proposal> Proposals { get; set; }
+        public List<Holiday> Holidays { get; set; }
     }
 }
