@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using portalPracowniczy.DataAccess;
 
 namespace portalPracowniczy.DataAccess.Migrations
 {
     [DbContext(typeof(PortalStorageContext))]
-    partial class PortalStorageContextModelSnapshot : ModelSnapshot
+    [Migration("20210514081132_Encje2")]
+    partial class Encje2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

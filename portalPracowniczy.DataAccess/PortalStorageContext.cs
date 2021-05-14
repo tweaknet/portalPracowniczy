@@ -15,5 +15,10 @@ namespace portalPracowniczy.DataAccess
         }
         public DbSet<User> Users { get; set; }
         public DbSet<Proposal> Proposals { get; set; }
+        public DbSet<Holiday> Holidays { get; set; }
+        public DbSet<HolidayType> HolidayTypes { get; set; }
+        public DbSet<Position> Positions { get; set; }
+        public DbSet<Status> Status { get; set; }
+        public DbSet<Branch> Branch { get; set; }
     }
 }
