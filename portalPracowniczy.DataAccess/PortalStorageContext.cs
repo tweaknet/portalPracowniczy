@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace portalPracowniczy.DataAccess
 {
-    class PortalStorageContext : DbContext
+    public class PortalStorageContext : DbContext
     {
         public PortalStorageContext(DbContextOptions<PortalStorageContext> opt) : base(opt)
         {

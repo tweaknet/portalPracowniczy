@@ -11,5 +11,6 @@ namespace portalPracowniczy.DataAccess.Entities
     {
         [Key]
         public int Id { get; set; }
+        public DateTime CreatedAt { get; internal set; }
     }
 }
