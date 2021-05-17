@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace portalPracowniczy.DataAccess.Entities
 {
-    class Proposal : EntityBase
+    public class Proposal : EntityBase
     {
         public int IdStatus { get; set; }
         public int IdUser { get; set; }

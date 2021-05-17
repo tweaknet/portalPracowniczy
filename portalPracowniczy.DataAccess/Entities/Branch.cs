@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace portalPracowniczy.DataAccess.Entities
 {
-    class Branch : EntityBase
+    public class Branch : EntityBase
     {
         public string Name { get; set; }
         public int IdSuperior { get; set; }

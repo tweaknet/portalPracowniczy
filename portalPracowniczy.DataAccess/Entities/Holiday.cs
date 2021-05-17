@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace portalPracowniczy.DataAccess.Entities
 {
-    class Holiday : EntityBase
+    public class Holiday : EntityBase
     {
         public int IdHolidayType { get; set; }
         public DateTime Data { get; set; }

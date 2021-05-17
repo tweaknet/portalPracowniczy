@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace portalPracowniczy.DataAccess.Entities
 {
-    class Status : EntityBase
+    public class Status : EntityBase
     {
         public string Name { get; set; }
         public bool Active { get; set; }
