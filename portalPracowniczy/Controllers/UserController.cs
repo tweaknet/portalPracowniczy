@@ -21,5 +21,9 @@ namespace portalPracowniczy.Controllers
         [HttpGet]
         [Route("")]
         public IEnumerable<User> GetAllUsers() => this.userRepository.GetAll();
+
+        [HttpGet]
+        [Route("{userId}")]
+        public User GetUserById(int userId) => this.userRepository.GetById(userId);
     }
 }
