@@ -1,4 +1,4 @@
-﻿using MediatR;
+﻿using portalPracowniczy.ApplicationServices.API.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace portalPracowniczy.ApplicationServices.API.Domain
 {
-    public class GetUsersRequest : IRequest<GetUsersResponse> 
+    class GetBranchesResponse : ResponseBase<List<Branch>>
     {
     }
 }
