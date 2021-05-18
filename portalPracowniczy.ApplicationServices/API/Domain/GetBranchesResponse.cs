@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace portalPracowniczy.ApplicationServices.API.Domain
 {
-    class GetBranchesResponse : ResponseBase<List<Branch>>
+    public class GetBranchesResponse : ResponseBase<List<Branch>>
     {
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace portalPracowniczy.ApplicationServices.API.Domain.Models
 {
-    class Branch
+    public class Branch
     {
         public string Name { get; set; }
         public int IdSuperior { get; set; }
