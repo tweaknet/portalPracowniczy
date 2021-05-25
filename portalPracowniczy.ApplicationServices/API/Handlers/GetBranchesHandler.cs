@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
 using portalPracowniczy.ApplicationServices.API.Domain;
 using portalPracowniczy.DataAccess;
 using portalPracowniczy.DataAccess.Entities;
@@ -14,22 +15,20 @@ namespace portalPracowniczy.ApplicationServices.API.Handlers
     public class GetBranchesHandler : IRequestHandler<GetBranchesRequest, GetBranchesResponse>
     {
         private readonly IRepository<Branch> branchRepository;
+        private readonly IMapper mapper;
 
-        public GetBranchesHandler(IRepository<DataAccess.Entities.Branch> branchRepository)
+        public GetBranchesHandler(IRepository<DataAccess.Entities.Branch> branchRepository, IMapper mapper)
         {
             this.branchRepository = branchRepository;
+            this.mapper = mapper;
         }
         public Task<GetBranchesResponse> Handle(GetBranchesRequest request, CancellationToken cancellationToken)
         {
             var branches = this.branchRepository.GetAll();
-            var domainBranch = branches.Select(x => new Domain.Models.Branch()
-            {
-                IdSuperior = x.IdSuperior,
-                Name = x.Name
-            });
+            var mappedBranches = this.mapper.Map<List<Domain.Models.Branch>>(branches);
             var response = new GetBranchesResponse()
             {
-                Data = domainBranch.ToList()
+                Data = mappedBranches
             };
             return Task.FromResult(response);
         }
