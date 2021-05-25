@@ -2,6 +2,7 @@
 using MediatR;
 using portalPracowniczy.ApplicationServices.API.Domain;
 using portalPracowniczy.DataAccess;
+using portalPracowniczy.DataAccess.CQRS.Queries;
 using portalPracowniczy.DataAccess.Entities;
 using System;
 using System.Collections.Generic;
@@ -14,18 +15,19 @@ namespace portalPracowniczy.ApplicationServices.API.Handlers
 {
     public class GetUsersHandler : IRequestHandler<GetUsersRequest, GetUsersResponse>
     {
-        private readonly IRepository<User> userRepository;
         private readonly IMapper mapper;
-        
-        public GetUsersHandler(IRepository<DataAccess.Entities.User> userRepository, IMapper mapper)
+        private readonly IQueryExecutor queryExecutor;
+
+        public GetUsersHandler(IMapper mapper, IQueryExecutor queryExecutor)
         {
-            this.userRepository = userRepository;
             this.mapper = mapper;
+            this.queryExecutor = queryExecutor;
         }
         public async Task<GetUsersResponse> Handle(GetUsersRequest request, CancellationToken cancellationToken)
         {
-            var users = await this.userRepository.GetAll();
-            var mappedUsers = this.mapper.Map<List< Domain.Models.User>> (users);
+            var query = new GetUserQuery();
+            var users = await this.queryExecutor.Execute(query);
+            var mappedUsers = this.mapper.Map<List<Domain.Models.User>> (users);
             var response = new GetUsersResponse()
             {
                 Data = mappedUsers
