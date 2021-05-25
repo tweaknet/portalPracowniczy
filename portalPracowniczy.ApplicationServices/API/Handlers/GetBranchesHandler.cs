@@ -22,15 +22,15 @@ namespace portalPracowniczy.ApplicationServices.API.Handlers
             this.branchRepository = branchRepository;
             this.mapper = mapper;
         }
-        public Task<GetBranchesResponse> Handle(GetBranchesRequest request, CancellationToken cancellationToken)
+        public async Task<GetBranchesResponse> Handle(GetBranchesRequest request, CancellationToken cancellationToken)
         {
-            var branches = this.branchRepository.GetAll();
+            var branches = await this.branchRepository.GetAll();
             var mappedBranches = this.mapper.Map<List<Domain.Models.Branch>>(branches);
             var response = new GetBranchesResponse()
             {
                 Data = mappedBranches
             };
-            return Task.FromResult(response);
+            return response;
         }
     }
 }

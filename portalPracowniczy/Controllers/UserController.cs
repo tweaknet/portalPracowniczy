@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using portalPracowniczy.ApplicationServices.API.Domain;
 using portalPracowniczy.DataAccess;
 using portalPracowniczy.DataAccess.Entities;
 using System;
@@ -12,18 +14,27 @@ namespace portalPracowniczy.Controllers
     [Route("[controller]")]
     public class UserController : ControllerBase
     {
-        private readonly IRepository<User> userRepository;
+        private readonly IMediator mediator;
 
-        public UserController(IRepository<User> userRepository)
+        public UserController(IMediator mediator)
         {
-            this.userRepository = userRepository;
+            this.mediator = mediator;
         }
         [HttpGet]
         [Route("")]
-        public IEnumerable<User> GetAllUsers() => this.userRepository.GetAll();
+        public async Task<IActionResult> GetAllUsers([FromQuery] GetUsersRequest request)
+        { 
+            var response = await this.mediator.Send(request);
+            return this.Ok(response);
+        }
 
-        [HttpGet]
-        [Route("{userId}")]
-        public User GetUserById(int userId) => this.userRepository.GetById(userId);
+        //[HttpGet]
+        //[Route("{userId}")]
+        ////public User GetUserById(int userId) => this.userRepository.GetById(userId);
+        //public async Task<IActionResult> GetUserById([FromQuery] GetUsersRequest request)
+        //{ 
+        //    var response = await this.mediator.Send(request);
+        //    return this.Ok(response);
+        //}
     }
 }
