@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace portalPracowniczy.DataAccess
+namespace portalPracowniczy.DataAccess.CQRS
 {
-    public interface CommandExecutor
+    interface ICommandExecutor
     {
-        Task<TResult> Execute<TParameters, TResult>(CommandBase<TParameters, TResult> command);
+        Task<TResult> Execute<TParameters, TResult>(CommandBase<TParameters, TResult> command); 
     }
 }

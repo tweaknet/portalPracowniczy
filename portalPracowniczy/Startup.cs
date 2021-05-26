@@ -32,6 +32,7 @@ namespace portalPracowniczy
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IQueryExecutor, QueryExecutor>();
+            services.AddTransient<ICommandExecutor, CommandExecutor>();
 
             services.AddAutoMapper(typeof(BranchesProfile).Assembly);
 

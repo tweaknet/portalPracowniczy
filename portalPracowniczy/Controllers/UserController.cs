@@ -20,6 +20,14 @@ namespace portalPracowniczy.Controllers
         {
             this.mediator = mediator;
         }
+        [HttpPost]
+        [Route("")]
+        public async Task<IActionResult> AddUser([FromBody] AddUserRequest request)
+        {
+            var response = await this.mediator.Send(request);
+            return this.Ok(response);
+        }
+
         [HttpGet]
         [Route("")]
         public async Task<IActionResult> GetAllUsers([FromQuery] GetUsersRequest request)
