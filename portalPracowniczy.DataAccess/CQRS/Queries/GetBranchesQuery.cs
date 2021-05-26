@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace portalPracowniczy.DataAccess.CQRS.Queries
 {
-    public class GetUsersQuery : QueryBase<List<User>>
+    public class GetBranchesQuery : QueryBase<List<Branch>>
     {
-        public int Id { get; set; }
-        public override Task<List<User>> Execute(PortalStorageContext context)
+        public string Name { get; set; }
+        public override Task<List<Branch>> Execute(PortalStorageContext context)
         {
-            return context.Users.ToListAsync();
+            return context.Branch.ToListAsync();
         }
     }
 }
