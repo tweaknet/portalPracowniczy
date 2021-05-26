@@ -25,7 +25,7 @@ namespace portalPracowniczy.ApplicationServices.API.Handlers
         }
         public async Task<GetUsersResponse> Handle(GetUsersRequest request, CancellationToken cancellationToken)
         {
-            var query = new GetUserQuery();
+            var query = new GetUsersQuery();
             var users = await this.queryExecutor.Execute(query);
             var mappedUsers = this.mapper.Map<List<Domain.Models.User>> (users);
             var response = new GetUsersResponse()
