@@ -12,6 +12,7 @@ using Microsoft.OpenApi.Models;
 using portalPracowniczy.ApplicationServices.API.Domain;
 using portalPracowniczy.ApplicationServices.Mappings;
 using portalPracowniczy.DataAccess;
+using portalPracowniczy.DataAccess.CQRS;
 using System;
 using System.Collections.Generic;
 using System.Linq;

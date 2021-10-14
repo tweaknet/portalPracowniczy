@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace portalPracowniczy.DataAccess.CQRS
 {
-    interface ICommandExecutor
+    public interface ICommandExecutor
     {
         Task<TResult> Execute<TParameters, TResult>(CommandBase<TParameters, TResult> command); 
     }

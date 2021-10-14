@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace portalPracowniczy.DataAccess.CQRS
 {
-    class CommandExecutor : ICommandExecutor
+    public class CommandExecutor : ICommandExecutor
     {
         private readonly PortalStorageContext context;
         public CommandExecutor(PortalStorageContext context)
@@ -16,7 +16,7 @@ namespace portalPracowniczy.DataAccess.CQRS
         }
         public Task<TResult> Execute<TParameters, TResult>(CommandBase<TParameters, TResult> command)
         {
-            throw new NotImplementedException();
+            return command.Execute(this.context);
         }
     }
 }
