@@ -10,10 +10,10 @@ namespace portalPracowniczy.DataAccess.CQRS.Queries
 {
     public class GetUsersQuery : QueryBase<List<User>>
     {
-        public int Id { get; set; }
+        public string Name { get; set; }
         public override Task<List<User>> Execute(PortalStorageContext context)
         {
-            return context.Users.ToListAsync();
+            return context.Users.Where(x => x.Name == this.Name).ToListAsync();
         }
     }
 }
