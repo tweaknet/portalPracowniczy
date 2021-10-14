@@ -2,6 +2,7 @@
 using MediatR;
 using portalPracowniczy.ApplicationServices.API.Domain;
 using portalPracowniczy.DataAccess;
+using portalPracowniczy.DataAccess.CQRS;
 using portalPracowniczy.DataAccess.CQRS.Commands;
 using portalPracowniczy.DataAccess.Entities;
 using System;
@@ -15,9 +16,9 @@ namespace portalPracowniczy.ApplicationServices.API.Handlers
 {
     public class AddUserHandler : IRequestHandler<AddUserRequest, AddUserResponse>
     {
-        private readonly CommandExecutor commandExecutor;
+        private readonly ICommandExecutor commandExecutor;
         private readonly IMapper mapper;
-        public AddUserHandler(CommandExecutor commandExecutor,IMapper mapper)
+        public AddUserHandler(ICommandExecutor commandExecutor,IMapper mapper)
         {
             this.commandExecutor = commandExecutor;
             this.mapper = mapper;

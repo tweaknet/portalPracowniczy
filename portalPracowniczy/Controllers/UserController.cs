@@ -28,13 +28,13 @@ namespace portalPracowniczy.Controllers
             return this.Ok(response);
         }
 
-        [HttpGet]
-        [Route("")]
-        public async Task<IActionResult> GetAllUsers([FromQuery] GetUsersRequest request)
-        { 
-            var response = await this.mediator.Send(request);
-            return this.Ok(response);
-        }
+        //[HttpGet]
+        //[Route("")]
+        //public async Task<IActionResult> GetAllUsers([FromQuery] GetUsersRequest request)
+        //{ 
+        //    var response = await this.mediator.Send(request);
+        //    return this.Ok(response);
+        //}
 
         //[HttpGet]
         //[Route("{userId}")]
