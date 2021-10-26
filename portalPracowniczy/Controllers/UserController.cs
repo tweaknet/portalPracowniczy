@@ -36,13 +36,17 @@ namespace portalPracowniczy.Controllers
             return this.Ok(response);
         }
 
-        //[HttpGet]
-        //[Route("{userId}")]
-        ////public User GetUserById(int userId) => this.userRepository.GetById(userId);
-        //public async Task<IActionResult> GetUserById([FromQuery] GetUsersRequest request)
-        //{ 
-        //    var response = await this.mediator.Send(request);
-        //    return this.Ok(response);
-        //}
+        [HttpGet]
+        [Route("{userId}")]
+        //public User GetUserById(int userId) => this.userRepository.GetById(userId);
+        public async Task<IActionResult> GetUserById([FromRoute] int userId)
+        {
+            var request = new GetUserByIdRequest()
+            {
+                UserId = userId
+            };
+            var response = await this.mediator.Send(request);
+            return this.Ok(response);
+        }
     }
 }
