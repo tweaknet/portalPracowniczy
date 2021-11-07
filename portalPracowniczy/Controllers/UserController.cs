@@ -48,5 +48,18 @@ namespace portalPracowniczy.Controllers
             var response = await this.mediator.Send(request);
             return this.Ok(response);
         }
+
+        [HttpDelete]
+        [Route("{userdId}")]
+        public async Task<IActionResult> DeleteUser([FromRoute] int userId)
+        {
+
+            var request = new DeleteUserRequest()
+            {
+                UserId = userId
+            };
+            var response = await this.mediator.Send(request);
+            return this.Ok();
+        }
     }
 }
