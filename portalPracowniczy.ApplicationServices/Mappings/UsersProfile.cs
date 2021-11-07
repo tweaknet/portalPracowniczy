@@ -18,8 +18,14 @@ namespace portalPracowniczy.ApplicationServices.Mappings
                 .ForMember(x => x.Id, y => y.MapFrom(z => z.Id))
                 .ForMember(x => x.Name, y => y.MapFrom(z => z.Name));
 
-            this.CreateMap<DeleteUserRequest, DataAccess.Entities.User>()
-    .ForMember(x => x.Id, y => y.MapFrom(z => z.UserId));
+            this.CreateMap<DeleteUserRequest, User>()
+                .ForMember(x => x.Id, y => y.MapFrom(z => z.UserId));
+
+            this.CreateMap<PutUserRequest, User>()
+                .ForMember(x => x.Login, y => y.MapFrom(z => z.Login))
+                .ForMember(x => x.Password, y => y.MapFrom(z => z.Password))
+                .ForMember(x => x.IdBranch, y => y.MapFrom(z => z.IdBranch))
+                .ForMember(x => x.Name, y => y.MapFrom(z => z.Name));
         }
     }
 }

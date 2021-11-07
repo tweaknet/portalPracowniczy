@@ -61,5 +61,13 @@ namespace portalPracowniczy.Controllers
             var response = await this.mediator.Send(request);
             return this.Ok();
         }
+
+        [HttpPut]
+        [Route("")]
+        public async Task<IActionResult> PutUser([FromBody] PutUserRequest request)
+        {
+            var response = await this.mediator.Send(request);
+            return this.Ok(response);
+        }
     }
 }
