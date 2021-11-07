@@ -1,11 +1,6 @@
 ﻿using AutoMapper;
 using portalPracowniczy.ApplicationServices.API.Domain;
 using portalPracowniczy.DataAccess.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace portalPracowniczy.ApplicationServices.Mappings
 {
@@ -23,6 +18,8 @@ namespace portalPracowniczy.ApplicationServices.Mappings
                 .ForMember(x => x.Id, y => y.MapFrom(z => z.Id))
                 .ForMember(x => x.Name, y => y.MapFrom(z => z.Name));
 
+            this.CreateMap<DeleteUserRequest, DataAccess.Entities.User>()
+    .ForMember(x => x.Id, y => y.MapFrom(z => z.UserId));
         }
     }
 }

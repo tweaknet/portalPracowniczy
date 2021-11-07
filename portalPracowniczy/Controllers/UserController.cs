@@ -50,7 +50,7 @@ namespace portalPracowniczy.Controllers
         }
 
         [HttpDelete]
-        [Route("{userdId}")]
+        [Route("{userId}")]
         public async Task<IActionResult> DeleteUser([FromRoute] int userId)
         {
 
