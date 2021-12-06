@@ -2,7 +2,7 @@
 using portalPracowniczy.ApplicationServices.API.Domain;
 using System;
 
-namespace portalPracowniczy.Controllers
+namespace portalPracowniczy.ApplicationServices.API.Domain
 {
     public class PutHolidayRequest : IRequest<PutHolidayResponse>
     {

@@ -6,7 +6,7 @@ namespace portalPracowniczy.ApplicationServices.Mappings
 {
     public class HolidaysProfile : Profile
     {
-        public holidaysProfile()
+        public HolidaysProfile()
         {
             this.CreateMap<AddHolidayRequest, Holiday>()
                 .ForMember(x => x.IdHolidayType, y => y.MapFrom(z => z.IdHolidayType))
@@ -20,10 +20,10 @@ namespace portalPracowniczy.ApplicationServices.Mappings
             this.CreateMap<DeleteHolidayRequest, Holiday>()
                 .ForMember(x => x.Id, y => y.MapFrom(z => z.HolidayId));
 
-            //this.CreateMap<PutHolidayRequest, Holiday>()
-            //    .ForMember(x => x.IdHolidayType, y => y.MapFrom(z => z.IdHolidayType))
-            //    .ForMember(x => x.Data, y => y.MapFrom(z => z.Data))
-            //    .ForMember(x => x.IdUser, y => y.MapFrom(z => z.IdUser));
+            this.CreateMap<PutHolidayRequest, Holiday>()
+                .ForMember(x => x.IdHolidayType, y => y.MapFrom(z => z.IdHolidayType))
+                .ForMember(x => x.Data, y => y.MapFrom(z => z.Data))
+                .ForMember(x => x.IdUser, y => y.MapFrom(z => z.IdUser));
         }
     }
 }

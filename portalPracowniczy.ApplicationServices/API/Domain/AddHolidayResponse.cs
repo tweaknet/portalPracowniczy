@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace portalPracowniczy.ApplicationServices.API.Domain
 {
-    internal class AddHolidayResponse : ResponseBase<Holiday>
+    public class AddHolidayResponse : ResponseBase<Holiday>
     {
     }
 }

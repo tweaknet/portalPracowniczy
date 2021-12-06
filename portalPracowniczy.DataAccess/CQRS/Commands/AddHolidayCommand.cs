@@ -11,7 +11,7 @@ namespace portalPracowniczy.DataAccess.CQRS.Commands
     {
         public override async Task<Holiday> Execute(PortalStorageContext context)
         {
-            await context.Holidays.AllAsync(this.Parameter);
+            await context.Holidays.AddAsync(this.Parameter);
             await context.SaveChangesAsync();
             return this.Parameter;
         }
