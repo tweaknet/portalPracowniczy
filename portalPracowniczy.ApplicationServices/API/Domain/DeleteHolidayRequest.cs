@@ -9,6 +9,6 @@ namespace portalPracowniczy.ApplicationServices.API.Domain
 {
     public class DeleteHolidayRequest : IRequest<DeleteHolidayResponse>
     {
-        public int HolidayId { get; set; }
+        public int Id { get; set; }
     }
 }

@@ -8,6 +8,7 @@ namespace portalPracowniczy.ApplicationServices.API.Domain.Models
 {
     public class Holiday
     {
+        public int Id { get; set; }
         public int IdHolidayType { get; set; }
         public DateTime Data { get; set; }
         public int IdUser { get; set; }

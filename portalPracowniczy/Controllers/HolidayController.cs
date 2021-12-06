@@ -39,11 +39,11 @@ namespace portalPracowniczy.Controllers
         [HttpGet]
         [Route("{holidayId}")]
         //public User GetUserById(int userId) => this.userRepository.GetById(userId);
-        public async Task<IActionResult> GetHolidayById([FromRoute] int holidayId)
+        public async Task<IActionResult> GetHolidayById([FromRoute] int Id)
         {
             var request = new GetHolidayByIdRequest()
             {
-                HolidayId = holidayId
+                Id = Id
             };
             var response = await this.mediator.Send(request);
             return this.Ok(response);
@@ -56,7 +56,7 @@ namespace portalPracowniczy.Controllers
 
             var request = new DeleteHolidayRequest()
             {
-                HolidayId = holidayId
+                Id = holidayId
             };
             var response = await this.mediator.Send(request);
             return this.Ok();

@@ -24,15 +24,15 @@ namespace portalPracowniczy.ApplicationServices.API.Handlers
 
         public async Task<GetHolidayByIdResponse> Handle(GetHolidayByIdRequest request, CancellationToken cancellationToken)
         {
-            var query = new GetUserQuery()
+            var query = new GetHolidaysQuery()
             {
-                Id = request.UserId
+                Id = request.Id
             };
             var holiday = await this.queryExecutor.Execute(query);
             var mappedholiday = this.mapper.Map<Domain.Models.Holiday>(holiday);
             var response = new GetHolidayByIdResponse()
             {
-                UserId = mappedholiday
+                Data = mappedholiday
             };
             return response;
         }

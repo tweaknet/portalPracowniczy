@@ -24,7 +24,7 @@ namespace portalPracowniczy.ApplicationServices.API.Handlers
         {
             var query = new GetHolidaysQuery()
             {
-                IdUser = request.IdUser
+                Id = request.Id
             };
             var holidays = await this.queryExecutor.Execute(query);
             var mappedHolidays = this.mapper.Map<List<Domain.Models.Holiday>>(holidays);

@@ -9,6 +9,7 @@ namespace portalPracowniczy.ApplicationServices.API.Domain
 {
     public class AddHolidayRequest : IRequest<AddHolidayResponse>
     {
+        public int Id { get; set; }
         public int IdHolidayType { get; set; }
         public DateTime Data { get; set; }
         public int IdUser { get; set; }
