@@ -13,8 +13,9 @@ namespace portalPracowniczy.DataAccess
         public PortalStorageContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<PortalStorageContext>();
-            //optionsBuilder.UseSqlServer("Provider=SQLNCLI11;Data Source=.\\sqlexpress;Integrated Security=SSPI;Initial Catalog=WebApp");
-            optionsBuilder.UseSqlServer("Data Source=.\\sqlexpress;Initial Catalog=portal;Integrated Security=True");
+            //optionsBuilder.UseSqlServer("Provider=srv3;Data Source=srv3\\mssql;Integrated Security=SSPI;Initial Catalog=WebApp");
+            optionsBuilder.UseSqlServer("Data Source=srv3\\MSSQL;Initial Catalog=portal;Integrated Security=True");
+            //optionsBuilder.UseSqlServer("Data Source=.\\sqlexpress;Initial Catalog=portal;Integrated Security=True");
             return new PortalStorageContext(optionsBuilder.Options);
         }
     }
