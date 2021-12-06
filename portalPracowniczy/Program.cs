@@ -23,4 +23,5 @@ namespace portalPracowniczy
                     webBuilder.UseStartup<Startup>();
                 });
     }
+    //...
 }
