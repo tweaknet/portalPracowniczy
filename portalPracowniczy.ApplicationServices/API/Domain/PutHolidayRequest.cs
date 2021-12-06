@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using portalPracowniczy.ApplicationServices.API.Domain;
 using System;
 
 namespace portalPracowniczy.ApplicationServices.API.Domain

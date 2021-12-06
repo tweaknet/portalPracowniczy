@@ -30,7 +30,7 @@ namespace portalPracowniczy.Controllers
 
         [HttpGet]
         [Route("")]
-        public async Task<IActionResult> GetAllHolidays([FromQuery] GetHolidayRequest request)
+        public async Task<IActionResult> GetAllHolidays([FromQuery] GetHolidaysRequest request)
         {
             var response = await this.mediator.Send(request);
             return this.Ok(response);
