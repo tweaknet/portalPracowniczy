@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace portalPracowniczy.DataAccess.Entities
+namespace portalPracowniczy.ApplicationServices.API.Domain.Models
 {
-    public class Holiday : EntityBase
+    public class Holiday
     {
-        public int HolidayId { get; set; }
         public int IdHolidayType { get; set; }
         public DateTime Data { get; set; }
         public int IdUser { get; set; }

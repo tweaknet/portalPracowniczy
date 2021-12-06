@@ -1,12 +1,13 @@
-﻿using System;
+﻿using MediatR;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace portalPracowniczy.DataAccess.Entities
+namespace portalPracowniczy.ApplicationServices.API.Domain
 {
-    public class Holiday : EntityBase
+    public class AddHolidayRequest : IRequest<AddHolidayResponse>
     {
         public int HolidayId { get; set; }
         public int IdHolidayType { get; set; }
