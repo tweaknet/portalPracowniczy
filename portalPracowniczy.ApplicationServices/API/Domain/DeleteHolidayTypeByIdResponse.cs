@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace portalPracowniczy.ApplicationServices.API.Domain
 {
-    internal class DeleteHolidayTypeByIdResponse : ResponseBase<HolidayType>
+    public class DeleteHolidayTypeByIdResponse : ResponseBase<HolidayType>
     {
     }
 }
