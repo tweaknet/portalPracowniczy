@@ -15,7 +15,7 @@ namespace portalPracowniczy.ApplicationServices.Mappings
                 .ForMember(x => x.IdUser, y => y.MapFrom(z => z.IdUser));
 
             this.CreateMap<Holiday, API.Domain.Models.Holiday>()
-                .ForMember(x => x.IdHolidayType, y => y.MapFrom(z => z.IdHolidayType))
+                //.ForMember(x => x.IdHolidayType, y => y.MapFrom(z => z.IdHolidayType))
                 .ForMember(x => x.Id, y => y.MapFrom(z => z.Id));
 
             this.CreateMap<DeleteHolidayRequest, Holiday>()

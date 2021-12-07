@@ -3,10 +3,6 @@ using MediatR;
 using portalPracowniczy.ApplicationServices.API.Domain;
 using portalPracowniczy.DataAccess;
 using portalPracowniczy.DataAccess.CQRS.Queries;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -36,6 +32,5 @@ namespace portalPracowniczy.ApplicationServices.API.Handlers
             };
             return response;
         }
-
     }
 }

@@ -1,12 +1,11 @@
 ﻿using AutoMapper;
 using MediatR;
-using portalPracowniczy.DataAccess;
-using System;
-using System.Collections.Generic;
-using portalPracowniczy.DataAccess.CQRS.Queries;
 using portalPracowniczy.ApplicationServices.API.Domain;
-using System.Threading.Tasks;
+using portalPracowniczy.DataAccess;
+using portalPracowniczy.DataAccess.CQRS.Queries;
+using System.Collections.Generic;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace portalPracowniczy.ApplicationServices.API.Handlers
 {
@@ -22,10 +21,7 @@ namespace portalPracowniczy.ApplicationServices.API.Handlers
         }
         public async Task<GetHolidaysResponse> Handle(GetHolidaysRequest request, CancellationToken cancellationToken)
         {
-            var query = new GetHolidaysQuery()
-            {
-                Id = request.Id
-            };
+            var query = new GetHolidaysQuery();
             var holidays = await this.queryExecutor.Execute(query);
             var mappedHolidays = this.mapper.Map<List<Domain.Models.Holiday>>(holidays);
             var response = new GetHolidaysResponse()

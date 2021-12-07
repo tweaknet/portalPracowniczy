@@ -37,8 +37,7 @@ namespace portalPracowniczy.Controllers
         }
 
         [HttpGet]
-        [Route("{holidayId}")]
-        //public User GetUserById(int userId) => this.userRepository.GetById(userId);
+        [Route("{Id}")]
         public async Task<IActionResult> GetHolidayById([FromRoute] int Id)
         {
             var request = new GetHolidayByIdRequest()

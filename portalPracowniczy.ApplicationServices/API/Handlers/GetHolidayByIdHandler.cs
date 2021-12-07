@@ -3,10 +3,6 @@ using MediatR;
 using portalPracowniczy.ApplicationServices.API.Domain;
 using portalPracowniczy.DataAccess;
 using portalPracowniczy.DataAccess.CQRS.Queries;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -24,7 +20,7 @@ namespace portalPracowniczy.ApplicationServices.API.Handlers
 
         public async Task<GetHolidayByIdResponse> Handle(GetHolidayByIdRequest request, CancellationToken cancellationToken)
         {
-            var query = new GetHolidaysQuery()
+            var query = new GetHolidayQuery()
             {
                 Id = request.Id
             };

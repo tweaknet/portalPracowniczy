@@ -1,6 +1,7 @@
-﻿namespace portalPracowniczy.ApplicationServices.API.Domain
+﻿using portalPracowniczy.ApplicationServices.API.Domain.Models;
+namespace portalPracowniczy.ApplicationServices.API.Domain
 {
-    public class DeleteHolidayResponse
+    public class DeleteHolidayResponse : ResponseBase<Holiday>
     {
     }
 }
