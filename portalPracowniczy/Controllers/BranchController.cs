@@ -6,60 +6,56 @@ using System.Threading.Tasks;
 namespace portalPracowniczy.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
-    public class UserController : ControllerBase
+        [Route("[controller]")]   
+    public class BranchController : ControllerBase
     {
         private readonly IMediator mediator;
 
-        public UserController(IMediator mediator)
+        public BranchController(IMediator mediator)
         {
             this.mediator = mediator;
         }
+        [HttpGet]
+        [Route("")]
+        public async Task<IActionResult> GetAllBranches([FromQuery] GetBranchesRequest request)
+        {
+            var response = await this.mediator.Send(request);
+            return this.Ok(response);
+        }
         [HttpPost]
         [Route("")]
-        public async Task<IActionResult> AddUser([FromBody] AddUserRequest request)
+        public async Task<IActionResult> AddBranch([FromBody] AddBranchRequest request)
         {
             var response = await this.mediator.Send(request);
             return this.Ok(response);
         }
 
         [HttpGet]
-        [Route("")]
-        public async Task<IActionResult> GetAllUsers([FromQuery] GetUsersRequest request)
+        [Route("{branchId}")]
+        public async Task<IActionResult> GetBranchById([FromRoute] int branchId)
         {
-            var response = await this.mediator.Send(request);
-            return this.Ok(response);
-        }
-
-        [HttpGet]
-        [Route("{userId}")]
-        //public User GetUserById(int userId) => this.userRepository.GetById(userId);
-        public async Task<IActionResult> GetUserById([FromRoute] int userId)
-        {
-            var request = new GetUserByIdRequest()
+            var request = new GetBranchByIdRequest()
             {
-                UserId = userId
+                Id = branchId
             };
             var response = await this.mediator.Send(request);
             return this.Ok(response);
         }
-
         [HttpDelete]
-        [Route("{userId}")]
-        public async Task<IActionResult> DeleteUser([FromRoute] int userId)
+        [Route("{branchId}")]
+        public async Task<IActionResult> DeleteBranchById([FromRoute] int branchId)
         {
 
-            var request = new DeleteUserRequest()
+            var request = new DeleteBranchByIdRequest()
             {
-                UserId = userId
+                Id = branchId
             };
             var response = await this.mediator.Send(request);
             return this.Ok();
         }
-
         [HttpPut]
         [Route("")]
-        public async Task<IActionResult> PutUser([FromBody] PutUserRequest request)
+        public async Task<IActionResult> PutBranch([FromBody] PutBranchRequest request)
         {
             var response = await this.mediator.Send(request);
             return this.Ok(response);

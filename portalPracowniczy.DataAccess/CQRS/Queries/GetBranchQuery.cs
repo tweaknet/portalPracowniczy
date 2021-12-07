@@ -10,10 +10,10 @@ namespace portalPracowniczy.DataAccess.CQRS.Queries
 {
     public class GetBranchQuery : QueryBase<Branch>
     {
-        public string Name { get; set; }
+        public int Id { get; set; }
         public override async Task<Branch> Execute(PortalStorageContext context)
         {
-            var branch = await context.Branch.FirstOrDefaultAsync(x => x.Name == this.Name);
+            var branch = await context.Branch.FirstOrDefaultAsync(x => x.Id == this.Id);
             return branch;
         }
     }

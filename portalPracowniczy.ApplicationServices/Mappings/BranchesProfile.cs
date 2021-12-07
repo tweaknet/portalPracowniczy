@@ -1,10 +1,6 @@
 ﻿using AutoMapper;
-using portalPracowniczy.ApplicationServices.API.Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using portalPracowniczy.ApplicationServices.API.Domain;
+using portalPracowniczy.DataAccess.Entities;
 
 namespace portalPracowniczy.ApplicationServices.Mappings
 {
@@ -12,9 +8,23 @@ namespace portalPracowniczy.ApplicationServices.Mappings
     {
         public BranchesProfile()
         {
-            this.CreateMap<portalPracowniczy.DataAccess.Entities.Branch, Branch>()
-        .ForMember(x => x.IdSuperior, y => y.MapFrom(z => z.IdSuperior))
-        .ForMember(x => x.Name, y => y.MapFrom(z => z.Name));
+            this.CreateMap<Branch, API.Domain.Models.Branch>()
+                .ForMember(x => x.Id, y => y.MapFrom(z => z.Id))
+                .ForMember(x => x.IdSuperior, y => y.MapFrom(z => z.IdSuperior))
+                .ForMember(x => x.Name, y => y.MapFrom(z => z.Name));
+
+            this.CreateMap<AddBranchRequest,Branch>()
+                .ForMember(x => x.Id, y => y.MapFrom(z => z.Id))
+                .ForMember(x => x.Name, z => z.MapFrom(y => y.Name))
+                .ForMember(x => x.IdSuperior,y => y.MapFrom(z => z.IdSuperior));
+
+            this.CreateMap<DeleteBranchByIdRequest, Branch>()
+                .ForMember(x => x.Id, y => y.MapFrom(z => z.Id));
+
+            this.CreateMap<PutBranchRequest, Branch>()
+                //.ForMember(x => x.Id, y => y.MapFrom(z => z.Id))
+                .ForMember(x => x.IdSuperior, y => y.MapFrom(z => z.IdSuperior))
+                .ForMember(x => x.Name, y => y.MapFrom(z => z.Name));
         }
     }
 }
