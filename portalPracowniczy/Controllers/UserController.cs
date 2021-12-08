@@ -1,6 +1,8 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using portalPracowniczy.ApplicationServices.API.Domain;
+using System;
 using System.Threading.Tasks;
 
 namespace portalPracowniczy.Controllers
@@ -63,6 +65,14 @@ namespace portalPracowniczy.Controllers
         {
             var response = await this.mediator.Send(request);
             return this.Ok(response);
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("authenticate")]
+        public Task<IActionResult> Post([FromBody] ValidateUserRequest request)
+        {
+            return this.HandleRequest<ValidateUserRequest, ValidateUserResponse>(request);
         }
     }
 }
