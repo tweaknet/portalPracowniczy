@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace portalPracowniczy.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class UserController : ControllerBase
@@ -67,12 +68,13 @@ namespace portalPracowniczy.Controllers
             return this.Ok(response);
         }
 
-        [AllowAnonymous]
-        [HttpPost]
-        [Route("authenticate")]
-        public Task<IActionResult> Post([FromBody] ValidateUserRequest request)
-        {
-            return this.HandleRequest<ValidateUserRequest, ValidateUserResponse>(request);
-        }
+        //[AllowAnonymous]
+        //[HttpPost]
+        //[Route("authenticate")]
+        //public Task<IActionResult> Post([FromBody] ValidateUserRequest request)
+        //{
+        //    return this.HandleRequest<ValidateUserRequest, ValidateUserResponse>(request);
+        //}
+
     }
 }
