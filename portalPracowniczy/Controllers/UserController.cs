@@ -1,9 +1,10 @@
-﻿using MediatR;
+﻿using System.Threading.Tasks;
+using portalPracowniczy.ApplicationServices.API.Domain;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using portalPracowniczy.ApplicationServices.API.Domain;
+using portalPracowniczy.Authentication;
 using System;
-using System.Threading.Tasks;
 
 namespace portalPracowniczy.Controllers
 {
@@ -33,6 +34,25 @@ namespace portalPracowniczy.Controllers
             var response = await this.mediator.Send(request);
             return this.Ok(response);
         }
+        [HttpGet]
+        [Route("")]
+        public Task<IActionResult> GetAll([FromQuery] GetUserLoginRequest request)
+        {
+            return this.HandleRequest<GetUserLoginRequest, GetUserLoginResponse>(request);
+        }
+
+        //private Task<IActionResult> HandleRequest<T1, T2>(T1 request)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //[AllowAnonymous]
+        //[HttpPost]
+        //[Route("authenticate")]
+        //public Task<IActionResult> Post([FromBody] ValidateUserRequest request)
+        //{
+        //    return this.HandleRequest<ValidateUserRequest, ValidateUserResponse>(request);
+        //}
 
         [HttpGet]
         [Route("{userId}")]
@@ -68,13 +88,6 @@ namespace portalPracowniczy.Controllers
             return this.Ok(response);
         }
 
-        //[AllowAnonymous]
-        //[HttpPost]
-        //[Route("authenticate")]
-        //public Task<IActionResult> Post([FromBody] ValidateUserRequest request)
-        //{
-        //    return this.HandleRequest<ValidateUserRequest, ValidateUserResponse>(request);
-        //}
 
     }
 }
