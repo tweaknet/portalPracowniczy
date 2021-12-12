@@ -11,13 +11,10 @@ namespace portalPracowniczy.Controllers
     [Authorize]
     [ApiController]
     [Route("[controller]")]
-    public class UserController : ControllerBase
+    public class UserController : ApiControllerBase
     {
-        private readonly IMediator mediator;
-
-        public UserController(IMediator mediator)
+        public UserController(IMediator mediator) : base(mediator)
         {
-            this.mediator = mediator;
         }
         [HttpPost]
         [Route("")]
@@ -40,11 +37,6 @@ namespace portalPracowniczy.Controllers
         {
             return this.HandleRequest<GetUserLoginRequest, GetUserLoginResponse>(request);
         }
-
-        //private Task<IActionResult> HandleRequest<T1, T2>(T1 request)
-        //{
-        //    throw new NotImplementedException();
-        //}
 
         //[AllowAnonymous]
         //[HttpPost]

@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace portalPracowniczy.ApplicationServices.API.Domain
 {
-    public class ResponseBase<T> : ErrorResponseBase
+    public class GetUserLoginRequest
     {
-        public T Data { get; set; }
     }
 }
