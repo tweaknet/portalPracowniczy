@@ -8,7 +8,7 @@ using System;
 
 namespace portalPracowniczy.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [ApiController]
     [Route("[controller]")]
     public class UserController : ApiControllerBase
@@ -20,17 +20,19 @@ namespace portalPracowniczy.Controllers
         [Route("")]
         public async Task<IActionResult> AddUser([FromBody] AddUserRequest request)
         {
-            var response = await this.mediator.Send(request);
-            return this.Ok(response);
+            return await this.HandleRequest<AddUserRequest, AddUserResponse>(request);
+            //var response = await this.mediator.Send(request);
+            //return this.Ok(response);
         }
 
-        [HttpGet]
-        [Route("")]
-        public async Task<IActionResult> GetAllUsers([FromQuery] GetUsersRequest request)
-        {
-            var response = await this.mediator.Send(request);
-            return this.Ok(response);
-        }
+        //[HttpGet]
+        //[Route("")]
+        //public async Task<IActionResult> GetAllUsers([FromQuery] GetUsersRequest request)
+        //{
+        //    return await this.HandleRequest<GetUsersRequest, GetUsersResponse>(request);
+        //    //var response = await this.mediator.Send(request);
+        //    //return this.Ok(response);
+        //}
         [HttpGet]
         [Route("")]
         public Task<IActionResult> GetAll([FromQuery] GetUserLoginRequest request)
@@ -38,13 +40,13 @@ namespace portalPracowniczy.Controllers
             return this.HandleRequest<GetUserLoginRequest, GetUserLoginResponse>(request);
         }
 
-        //[AllowAnonymous]
-        //[HttpPost]
-        //[Route("authenticate")]
-        //public Task<IActionResult> Post([FromBody] ValidateUserRequest request)
-        //{
-        //    return this.HandleRequest<ValidateUserRequest, ValidateUserResponse>(request);
-        //}
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("authenticate")]
+        public Task<IActionResult> Post([FromBody] ValidateUserRequest request)
+        {
+            return this.HandleRequest<ValidateUserRequest, ValidateUserResponse>(request);
+        }
 
         [HttpGet]
         [Route("{userId}")]

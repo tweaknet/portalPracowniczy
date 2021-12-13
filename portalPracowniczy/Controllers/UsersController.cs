@@ -8,7 +8,7 @@ namespace portalPracowniczy.Controllers
 {
     [Authorize]
     [ApiController]
-    [Route("[controller)")]
+    [Route("[controller]")]
     public class UsersController : ApiControllerBase
     {
         public UsersController(IMediator mediator) : base(mediator)
@@ -17,9 +17,9 @@ namespace portalPracowniczy.Controllers
 
         [HttpGet]
         [Route("")]
-        public Task<IActionResult> GetAll([FromQuery] GetUserLoginRequest request)
+        public Task<IActionResult> GetAllLogins([FromBody] GetUserLoginRequest request)
         {
-            return this.HandlerRequest<GetUserLoginRequest, GetUserLoginResponse>(request);
+            return this.HandleRequest<GetUserLoginRequest, GetUserLoginResponse>(request);
         }
     }
 }

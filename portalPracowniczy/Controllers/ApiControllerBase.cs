@@ -1,7 +1,9 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using portalPracowniczy.ApplicationServices.API.Domain;
+using portalPracowniczy.ApplicationServices.API.ErrorHandling;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace portalPracowniczy.Controllers
@@ -27,7 +29,7 @@ namespace portalPracowniczy.Controllers
             var response = await this.mediator.Send(request);
             if (response.Error != null)
             {
-                //return this.ErrorResponse(response.Error);
+                return this.ErrorResponse(response.Error);
             }
             return this.Ok(response);
         }
@@ -39,10 +41,25 @@ namespace portalPracowniczy.Controllers
         }
         private static HttpStatusCode GetHttpStatusCode(string errorType)
         {
-switch (errorType)
-            {
-                case ErrorType.NotFound: return HttpStatusCode.NotFound;
-            }
+        switch (errorType)
+                    {
+                        case ErrorType.NotFound: 
+                            return HttpStatusCode.NotFound;
+                        case ErrorType.InternalServerError: 
+                            return HttpStatusCode.InternalServerError;
+                        case ErrorType.Unauthorized: 
+                            return HttpStatusCode.Forbidden;
+                        case ErrorType.RequestTooLarge: 
+                            return HttpStatusCode.RequestEntityTooLarge;
+                        case ErrorType.UnsupportedMediaType: 
+                            return HttpStatusCode.UnsupportedMediaType;
+                        case ErrorType.UnsupportedMethod: 
+                            return HttpStatusCode.MethodNotAllowed;
+                        case ErrorType.TooManyRequests: 
+                            return (HttpStatusCode)429;
+                        default:
+                            return HttpStatusCode.BadRequest;
+                    }
         }
     }
 }

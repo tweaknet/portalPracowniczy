@@ -8,15 +8,15 @@ namespace portalPracowniczy.ApplicationServices.API.ErrorHandling
 {
     public static class ErrorType
     {
-        public const string InternalServerError = "Internal_server_error";
-        public const string ValidationError = "Validation_Error";
-        public const string NotAuthenticated = "not_authenticated";
-        public const string Unauthorized = "unaut";
-        public const string NotFound = "nf";
-        public const string UnsuportedMediaType = "umt";
-        public const string UnsuportedMethod = "um";
-        public const string RequestTooLarge = "Rtl";
-        public const string TooManyRequests = "tmr";
+        public const string InternalServerError = "INTERNAL_SERVER_ERROR";
+        public const string ValidationError = "VALIDATION_ERROR";
+        public const string NotAuthenticated = "NOT_AUTHENTICATED";
+        public const string Unauthorized = "UNAUTHORIZED";
+        public const string NotFound = "NOT_FOUND";
+        public const string UnsupportedMediaType = "UNSUPPORTED_MEDIA_TYPE";
+        public const string UnsupportedMethod = "UMSUPPORTED_METHOD";
+        public const string RequestTooLarge = "REQUEST_TOO_LARGE";
+        public const string TooManyRequests = "TOO_MANY_REQUESTS";
 
     }
 }
