@@ -25,14 +25,14 @@ namespace portalPracowniczy.Controllers
             //return this.Ok(response);
         }
 
-        //[HttpGet]
-        //[Route("")]
-        //public async Task<IActionResult> GetAllUsers([FromQuery] GetUsersRequest request)
-        //{
-        //    return await this.HandleRequest<GetUsersRequest, GetUsersResponse>(request);
-        //    //var response = await this.mediator.Send(request);
-        //    //return this.Ok(response);
-        //}
+        [HttpGet]
+        [Route("yyy")]
+        public async Task<IActionResult> GetAllUsers([FromQuery] GetUsersRequest request)
+        {
+            return await this.HandleRequest<GetUsersRequest, GetUsersResponse>(request);
+            //var response = await this.mediator.Send(request);
+            //return this.Ok(response);
+        }
         [HttpGet]
         [Route("")]
         public Task<IActionResult> GetAll([FromQuery] GetUserLoginRequest request)

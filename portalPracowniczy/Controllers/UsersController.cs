@@ -6,7 +6,7 @@ using portalPracowniczy.ApplicationServices.API.Domain;
 
 namespace portalPracowniczy.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [ApiController]
     [Route("[controller]")]
     public class UsersController : ApiControllerBase
