@@ -17,7 +17,7 @@ namespace portalPracowniczy.Controllers
 
         [HttpGet]
         [Route("")]
-        public Task<IActionResult> GetAllLogins([FromBody] GetUserLoginRequest request)
+        public Task<IActionResult> GetAllLogins([FromQuery] GetUserLoginRequest request)
         {
             return this.HandleRequest<GetUserLoginRequest, GetUserLoginResponse>(request);
         }

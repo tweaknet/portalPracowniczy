@@ -23,7 +23,7 @@ namespace portalPracowniczy.ApplicationServices.API.Handlers
         {
             var query = new GetUserLoginQuery()
             {
-                Login = request.Login
+                Login = request.Name
             };
             var users = await this.queryExecutor.Execute(query);
             var mappedUserLogin = this.mapper.Map<Domain.Models.User>(users);
