@@ -10,6 +10,7 @@ namespace portalPracowniczy.ApplicationServices.API.Domain.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public int IdBranch { get; set; }
+        public string Login { get; set; }
+        //public int IdBranch { get; set; }
     }
 }

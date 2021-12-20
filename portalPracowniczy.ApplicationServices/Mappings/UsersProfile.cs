@@ -16,6 +16,7 @@ namespace portalPracowniczy.ApplicationServices.Mappings
 
             this.CreateMap<User, API.Domain.Models.User>()
                 .ForMember(x => x.Id, y => y.MapFrom(z => z.Id))
+                .ForMember(x => x.Login, y => y.MapFrom(z => z.Login))
                 .ForMember(x => x.Name, y => y.MapFrom(z => z.Name));
 
             this.CreateMap<DeleteUserRequest, User>()
