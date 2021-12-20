@@ -10,7 +10,7 @@ namespace portalPracowniczy.DataAccess.CQRS.Queries
         public string Login { get; set; }
         public override async Task<User> Execute(PortalStorageContext context)
         {
-            return await context.Users.FirstOrDefaultAsync(x => x.Name == this.Login);
+            return await context.Users.FirstOrDefaultAsync(x => x.Name == this.Name);
         }
     }
 }

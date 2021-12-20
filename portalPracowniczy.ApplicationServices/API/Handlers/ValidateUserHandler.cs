@@ -9,25 +9,25 @@ using System.Threading.Tasks;
 
 namespace portalPracowniczy.ApplicationServices.API.Handlers
 {
-    public class GetUsersLoginHandler : IRequestHandler<GetUserLoginRequest, GetUserLoginResponse>
+    public class ValidateUserHandler : IRequestHandler<ValidateUserRequest, ValidateUserResponse>
     {
         private readonly IMapper mapper;
         private readonly IQueryExecutor queryExecutor;
-
-        public GetUsersLoginHandler(IMapper mapper, IQueryExecutor queryExecutor)
+        public ValidateUserHandler(IMapper mapper, IQueryExecutor queryExecutor)
         {
             this.mapper = mapper;
             this.queryExecutor = queryExecutor;
         }
-        public async Task<GetUserLoginResponse> Handle(GetUserLoginRequest request, CancellationToken cancellationToken)
+
+        public async Task<ValidateUserResponse> Handle(ValidateUserRequest request, CancellationToken cancellationToken)
         {
             var query = new GetUserLoginQuery()
             {
-                Name = request.Name
+                Login = request.Login
             };
             var users = await this.queryExecutor.Execute(query);
             var mappedUserLogin = this.mapper.Map<Domain.Models.User>(users);
-            var response = new GetUserLoginResponse()
+            var response = new ValidateUserResponse()
             {
                 Data = mappedUserLogin
             };
