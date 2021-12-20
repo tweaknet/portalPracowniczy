@@ -22,7 +22,7 @@ namespace portalPracowniczy.Controllers
         {
             return this.HandleRequest<GetUserLoginRequest, GetUserLoginResponse>(request);
         }
-        //[AllowAnonymous]
+        [AllowAnonymous]
         [HttpGet]
         [Route("authenticate")]
         public Task<IActionResult> GetAll([FromQuery] ValidateUserRequest request)
