@@ -15,6 +15,7 @@ namespace portalPracowniczy.Controllers
             : base(mediator)
         {
         }
+        [Authorize]
         [HttpGet]
         [Route("")]
         public Task<IActionResult> GetAllUsers([FromQuery] GetUserLoginRequest request)
