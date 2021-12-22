@@ -1,18 +1,17 @@
-﻿using System;
-using System.Net.Http.Headers;
-using System.Security.Claims;
-using System.Text;
-using System.Text.Encodings.Web;
-using System.Threading.Tasks;
-using portalPracowniczy.DataAccess.CQRS;
-using portalPracowniczy.DataAccess.CQRS.Queries;
-using portalPracowniczy.DataAccess.Entities;
-using Microsoft.AspNetCore.Authentication;
+﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using portalPracowniczy.DataAccess;
+using portalPracowniczy.DataAccess.CQRS.Queries;
+using portalPracowniczy.DataAccess.Entities;
+using System;
+using System.Net.Http.Headers;
+using System.Security.Claims;
+using System.Text;
+using System.Text.Encodings.Web;
+using System.Threading.Tasks;
 
 namespace portalPracowniczy.Authentication
 {
@@ -53,7 +52,7 @@ namespace portalPracowniczy.Authentication
                 var credentials = Encoding.UTF8.GetString(credentialBytes).Split(new[] { ':' }, 2);
                 var login = credentials[0];
                 var password = credentials[1];
-                var query = new GetUserLoginQuery()
+                var query = new ValidateUserQuery()
                 {
                     Login = login
                 };

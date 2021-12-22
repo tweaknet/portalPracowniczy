@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace portalPracowniczy.DataAccess.CQRS.Queries
 {
-    internal class ValidateUserQuery : QueryBase<List<User>>
+    public class ValidateUserQuery : QueryBase<User>
     {
         public string Login { get; set; }
-        public override Task<List<User>> Execute(PortalStorageContext context)
+        public override Task<User> Execute(PortalStorageContext context)
         {
-            return context.Users.Where(x => x.Login == this.Login).ToListAsync();
+            return context.Users.FirstOrDefaultAsync(x => x.Login == this.Login);
         }
     }
 }

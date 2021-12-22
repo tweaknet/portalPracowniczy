@@ -48,7 +48,7 @@ namespace portalPracowniczy.Controllers
                         case ErrorType.InternalServerError: 
                             return HttpStatusCode.InternalServerError;
                         case ErrorType.Unauthorized: 
-                            return HttpStatusCode.Forbidden;
+                            return HttpStatusCode.Unauthorized;
                         case ErrorType.RequestTooLarge: 
                             return HttpStatusCode.RequestEntityTooLarge;
                         case ErrorType.UnsupportedMediaType: 

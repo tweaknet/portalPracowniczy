@@ -37,7 +37,7 @@ namespace portalPracowniczy
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddAuthentication("BasicAuthentication")
-                .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
+               .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
             
             services.AddMvcCore()
                 .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<AddUserRequestValidator>());

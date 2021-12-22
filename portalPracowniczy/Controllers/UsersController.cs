@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using MediatR;
 using System.Threading.Tasks;
+using portalPracowniczy.Authentication;
 using portalPracowniczy.ApplicationServices.API.Domain;
 
 namespace portalPracowniczy.Controllers
@@ -11,23 +12,24 @@ namespace portalPracowniczy.Controllers
     [Route("[controller]")]
     public class UsersController : ApiControllerBase
     {
-        public UsersController(IMediator mediator) : base(mediator)
+        public UsersController(IMediator mediator) 
+            : base(mediator)
         {
         }
-        
-        [AllowAnonymous]
+
+        //[AllowAnonymous]
         [HttpGet]
         [Route("")]
-        public Task<IActionResult> GetAllLogins([FromQuery] GetUserLoginRequest request)
+        public Task<IActionResult> GetAllUsers([FromQuery] GetUserLoginRequest request)
         {
             return this.HandleRequest<GetUserLoginRequest, GetUserLoginResponse>(request);
         }
-        [AllowAnonymous]
-        [HttpGet]
-        [Route("authenticate")]
-        public Task<IActionResult> GetAll([FromQuery] ValidateUserRequest request)
-        {
-            return this.HandleRequest<ValidateUserRequest, ValidateUserResponse>(request);
-        }
+        //[AllowAnonymous]
+        //[HttpGet]
+        //[Route("")]
+        //public Task<IActionResult> GetName([FromQuery] ValidateUserRequest request)
+        //{
+        //    return this.HandleRequest<ValidateUserRequest, ValidateUserResponse>(request);
+        //}
     }
 }

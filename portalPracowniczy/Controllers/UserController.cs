@@ -1,10 +1,9 @@
-﻿using System.Threading.Tasks;
-using portalPracowniczy.ApplicationServices.API.Domain;
-using MediatR;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+using MediatR;
+using System.Threading.Tasks;
 using portalPracowniczy.Authentication;
-using System;
+using portalPracowniczy.ApplicationServices.API.Domain;
 
 namespace portalPracowniczy.Controllers
 {
