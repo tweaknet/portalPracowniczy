@@ -3,6 +3,7 @@ using MediatR;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -73,7 +74,7 @@ namespace portalPracowniczy
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "portalPracowniczy v1.1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "portalPracowniczy v1.2"));
             }
 
             app.UseHttpsRedirection();
@@ -87,6 +88,9 @@ namespace portalPracowniczy
             {
                 endpoints.MapControllers();
             });
+            //app.Run(async (context) => {
+            //    await context.Response.WriteAsync("The requested page is unavailable!");
+            //});
         }
     }
 }
