@@ -7,7 +7,6 @@ using portalPracowniczy.ApplicationServices.API.Domain;
 
 namespace portalPracowniczy.Controllers
 {
-    //[Authorize]
     [ApiController]
     [Route("[controller]")]
     public class UserController : ApiControllerBase
@@ -23,7 +22,6 @@ namespace portalPracowniczy.Controllers
             //var response = await this.mediator.Send(request);
             //return this.Ok(response);
         }
-
         [HttpGet]
         [Route("yyy")]
         public async Task<IActionResult> GetAllUsers([FromQuery] GetUsersRequest request)
