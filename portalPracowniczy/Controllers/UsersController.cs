@@ -4,6 +4,7 @@ using MediatR;
 using System.Threading.Tasks;
 using portalPracowniczy.Authentication;
 using portalPracowniczy.ApplicationServices.API.Domain;
+using Microsoft.Extensions.Logging;
 
 namespace portalPracowniczy.Controllers
 {
@@ -11,9 +12,10 @@ namespace portalPracowniczy.Controllers
     [Route("[controller]")]
     public class UsersController : ApiControllerBase
     {
-        public UsersController(IMediator mediator)
+        public UsersController(IMediator mediator, ILogger<UsersController> logger)
             : base(mediator)
         {
+            logger.LogInformation("we are in users");
         }
         [Authorize]
         [HttpGet]
