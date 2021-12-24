@@ -4,6 +4,7 @@ using portalPracowniczy.ApplicationServices.API.Domain;
 using portalPracowniczy.ApplicationServices.API.ErrorHandling;
 using System.Linq;
 using System.Net;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace portalPracowniczy.Controllers
@@ -26,6 +27,9 @@ namespace portalPracowniczy.Controllers
                     .Where(x => x.Value.Errors.Any())
                     .Select(x => new { property = x.Key, errors = x.Value.Errors }));
             }
+
+            var userName = this.User.FindFirstValue(ClaimTypes.Name);
+            System.Console.WriteLine(userName);
             var response = await this.mediator.Send(request);
             if (response.Error != null)
             {
