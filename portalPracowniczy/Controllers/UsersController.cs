@@ -27,8 +27,9 @@ namespace portalPracowniczy.Controllers
         //[Authorize]
         [HttpPost]
         [Route("authenticate")]
-        public Task<IActionResult> Post([FromBody] ValidateUserRequest request)
+        public Task<IActionResult> Get([FromQuery] ValidateUserRequest request)
         {
+            System.Console.WriteLine("KK"+request);
             return this.HandleRequest<ValidateUserRequest, ValidateUserResponse>(request);
         }
         [HttpGet]

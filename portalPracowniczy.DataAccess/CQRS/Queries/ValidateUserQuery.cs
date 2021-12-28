@@ -11,6 +11,8 @@ namespace portalPracowniczy.DataAccess.CQRS.Queries
     public class ValidateUserQuery : QueryBase<User>
     {
         public string Login { get; set; }
+        //public string Password { get; set; }
+
         public override Task<User> Execute(PortalStorageContext context)
         {
             return context.Users.FirstOrDefaultAsync(x => x.Login == this.Login);

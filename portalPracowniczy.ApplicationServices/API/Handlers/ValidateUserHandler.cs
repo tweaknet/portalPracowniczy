@@ -24,7 +24,8 @@ namespace portalPracowniczy.ApplicationServices.API.Handlers
         {
             var query = new ValidateUserQuery()
             {
-                Login = request.Login
+                Login = request.Login //,
+                //Password = request.Password
             };
             var users = await this.queryExecutor.Execute(query);
             if (users == null)
