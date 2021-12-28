@@ -20,8 +20,8 @@ namespace portalPracowniczy.ApplicationServices.Mappings
                 .ForMember(x => x.Password, y => y.MapFrom(z => z.Password))
                 .ForMember(x => x.Name, y => y.MapFrom(z => z.Name));
 
-            this.CreateMap<ValidateUserRequest, API.Domain.Models.User>()
-                .ForMember(x => x.Login, y => y.MapFrom(z => z.Login));
+            //this.CreateMap<ValidateUserRequest, API.Domain.Models.User>()
+            //    .ForMember(x => x.Login, y => y.MapFrom(z => z.Login));
                 //.ForMember(x => x.Password, y => y.MapFrom(z => z.Password));
 
             this.CreateMap<DeleteUserRequest, User>()
