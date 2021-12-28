@@ -24,6 +24,13 @@ namespace portalPracowniczy.Controllers
         {
             return this.HandleRequest<GetUserLoginRequest, GetUserLoginResponse>(request);
         }
+        //[Authorize]
+        [HttpPost]
+        [Route("authenticate")]
+        public Task<IActionResult> Post([FromBody] ValidateUserRequest request)
+        {
+            return this.HandleRequest<ValidateUserRequest, ValidateUserResponse>(request);
+        }
         [HttpGet]
         [Route("r")]
         public Task<IActionResult> GetName([FromQuery] ValidateUserRequest request)
